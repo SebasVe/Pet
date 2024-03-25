@@ -7,6 +7,13 @@ public class StandardArrayAlgoritms
   {
     int[] goals = {1, 2, 0, 3, 2, 4, 2, 1, 0, 2, 0, 1, 3, 2};
     int[] goalCounter = new int[20];
+    Player[] players = {new Player("Alex", 12), new Player("Aiden", 13),
+                    new Player("Bobbie", 18), new Player("Blaine", 22),
+                    new Player("Chris", 15), new Player("Charlie", 15) };
+    int maxCount = 0;
+    int maxKey = -1;
+    boolean hasValue = true;
+    boolean allHaveValues = true;
     double average = 0.0;
     int sum = 0;
     int max = goals[0];
@@ -25,13 +32,36 @@ public class StandardArrayAlgoritms
       goalCounter[i]++;
     }
        average = sum / (double)goals.length;
-      
+    for (int i = 0; i < goals.length; i++)
+    {
+      goalCounter[goals[i]]++;
+      if (goalCounter[goals[i]] > maxCount)
+      {
+        maxCount = goalCounter[goals[i]];
+        maxKey = goals[i];
+      }
+    }
+    int k = 0;
+    while (k < players.length)
+    {
+      int m = players[0].getAge();
+      if (m >= 18)
+      {
+        hasValue = true;
+        break;
+      }
+      k++;
+    }
     
+
     System.out.println("All goals: " + sum);
     System.out.println("Average: " + average);
     System.out.println("Max: " + max);
     System.out.println("Min:" + min);
-    System.out.println(goalCounter);
+    System.out.println(maxKey);
+    System.out.println("Player over 18 in team: " + hasValue);
+
   }
   
 }
+

@@ -52,14 +52,28 @@ public class StandardArrayAlgoritms
       }
       k++;
     }
-    
+    boolean allUnder21 = true;
+    for (int age : players) 
+    {
+      if (age >= 21) 
+      {
+          allUnder21 = false;
+          break;
+      }
+    }
+    for (int i = 0; i < players.length - 1; i += 2) 
+    {
+      System.out.println(players[i] + " and " + players[i + 1]);
+    }
 
+    
     System.out.println("All goals: " + sum);
     System.out.println("Average: " + average);
     System.out.println("Max: " + max);
     System.out.println("Min:" + min);
     System.out.println(maxKey);
     System.out.println("Player over 18 in team: " + hasValue);
+    System.out.println("Are all player's under 21: " + allUnder21);
 
   }
   
